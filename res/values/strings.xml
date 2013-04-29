@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Hungry</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+<!-- facebook share messages -->
+    <string name="facebook_check_server_error">Error logging into facebook. Please check if network is available.</string>
+    <string name="facebook_oauth_error">Error accessing your facebook account. Please login to your account and post again.</string>
+    <string name="facebook_uploading_image">Uploading your captured image to your FB page..</string>
+    <string name="facebook_successful_post">Photo posted!</string>
+    
+</resources>
