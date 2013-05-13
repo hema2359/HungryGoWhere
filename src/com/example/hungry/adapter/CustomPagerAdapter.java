@@ -6,36 +6,36 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.example.hungry.R;
 
 public class CustomPagerAdapter extends PagerAdapter{
 	private final String TAG = "Hungry Second";
 	private Context context;
-	ArrayList<String> names = new ArrayList<String>();
+	ArrayList<Integer> names = new ArrayList<Integer>();
 	
-	public CustomPagerAdapter(Context context, ArrayList<String> names){
+	public CustomPagerAdapter(Context context, ArrayList<Integer> names){
 		this.context = context;
 		this.names = names;
 	}
 	
 	@Override
-	public Object instantiateItem(View arg0, int position) {
+	public Object instantiateItem(View collection, int position) {
 		Log.d(TAG,"instantiateitem");
-	LinearLayout ll = new LinearLayout(context);
-	ll.setOrientation(LinearLayout.VERTICAL);
-	TextView tv = new TextView(context);
-	tv.setText(names.get(position));
-	ll.addView(tv);
-	Button btn = new Button(context);
-	btn.setText(names.get(position));
-	btn.setOnClickListener(btnlistener);
-	ll.addView(btn);
-	((ViewPager)  arg0).addView(ll);
-	return ll;
+		LayoutInflater inflater = (LayoutInflater)collection.getContext()
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		View view = inflater.inflate(R.layout.item_restaurant, null);
+		
+		ImageView iv = (ImageView) view.findViewById(R.id.iv_rest_image);
+		iv.setImageResource(names.get(position));
+	
+		((ViewPager)  collection).addView(view);
+		return view;
 	}
 	
 	private View.OnClickListener btnlistener = new View.OnClickListener() {

@@ -24,7 +24,6 @@ import android.util.Log;
 public class HttpHelper {
 	
 	private static final String TAG="HttpHelper";
-	public static final String API_BASE_ADDRESS="http://hgwm2359-staging.herokuapp.com/";
 	
 	public static String sendRequestUsingGet(String uri,
 			ArrayList<NameValuePair> params) throws ClientProtocolException, IOException {

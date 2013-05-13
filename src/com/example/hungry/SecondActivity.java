@@ -43,7 +43,7 @@ public class SecondActivity extends Activity {
 			tlist.add(s);
 		}
 		
-		ViewPager vpNearby = (ViewPager)findViewById(R.id.vp_nearby);
+	/*	ViewPager vpNearby = (ViewPager)findViewById(R.id.vp_nearby);
 		CustomPagerAdapter nadapter = new CustomPagerAdapter(this, nlist);
 		vpNearby.setAdapter(nadapter);
 		ViewPager vpBest = (ViewPager)findViewById(R.id.vp_best);
@@ -54,7 +54,7 @@ public class SecondActivity extends Activity {
 		vpWant.setAdapter(wadapter);
 		ViewPager vpTried = (ViewPager)findViewById(R.id.vp_tried);
 		CustomPagerAdapter tadapter = new CustomPagerAdapter(this, tlist);
-		vpTried.setAdapter(tadapter);
+		vpTried.setAdapter(tadapter);*/
 		
 	}
 	@Override

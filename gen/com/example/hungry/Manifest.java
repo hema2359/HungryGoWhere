@@ -9,6 +9,6 @@ package com.example.hungry;
 
 public final class Manifest {
     public static final class permission {
-        public static final String a="a";
+        public static final String MAPS_RECEIVE="com.example.hungry.permission.MAPS_RECEIVE";
     }
 }

@@ -22,9 +22,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hungry.helper.HttpHelper;
+import com.example.hungry.location.GPSTracker;
 import com.example.hungry.share.FacebookShare;
 import com.example.hungry.share.SessionEvents;
 import com.example.hungry.share.SessionStore;
+import com.example.hungry.utils.Const;
 
 public class MainActivity extends Activity {
 	private FacebookShare facebookshare;
@@ -34,6 +36,9 @@ public class MainActivity extends Activity {
 	private String mHgryToken;
 	private Button mBtnLogin, mBtnOpen;
 	private TextView mTvWelcome;
+	private TextView mLat;
+	private TextView mLon;
+	private GPSTracker gps;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +46,36 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		facebookshare = new FacebookShare(this);
 		mBtnLogin= (Button)findViewById(R.id.btn_login);
-		mBtnOpen = (Button)findViewById(R.id.btn_open);
-		mTvWelcome = (TextView)findViewById(R.id.tv_welcome);
-		if(isSessionValid())
-			showLogin(false);
-		else
-			showLogin(true);
 		
+		if(isSessionValid())
+			openHungry();
+		
+		
+	
+		/*gps = new GPSTracker(this);
+		
+		if(gps.canGetLocation()){
+			double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+          //  mLat.setText(Double.toString(latitude));
+           // mLon.setText(Double.toString(longitude));
+		}else{
+			gps.showSettingsAlert();
+		}*/
+		
+	}
+
+	private void login() {
+		if(!facebookshare.isSessionValid()){
+			Log.d(TAG,"session not valid");
+			loginToFacebook();				
+
+		}
+		else {
+			Log.d(TAG,"facebook session valid");
+			//getProfile();
+			loginToHungry();
+		}		
 	}
 
 	private void showLogin(boolean bLogged) {
@@ -61,6 +89,7 @@ public class MainActivity extends Activity {
 			mTvWelcome.setVisibility(View.VISIBLE);
 		}
 	}
+
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -84,18 +113,8 @@ public class MainActivity extends Activity {
 	}
 	
 	public void onLogin(View v){
-			if(!facebookshare.isSessionValid()){
-				Log.d(TAG,"session not valid");
-				loginToFacebook();				
-
-			}
-			else {
-				Log.d(TAG,"facebook session valid");
-				//getProfile();
-				loginToHungry();
-			}
-		
-		
+		login();
+			
 	}
 	public void onOpen(View v){
 		openHungry();
@@ -107,8 +126,8 @@ public class MainActivity extends Activity {
 		editor.commit();		
 	}
 	 private void openHungry() {
-		 Toast.makeText(this, "Logged in successfully", Toast.LENGTH_SHORT).show();
-		 Intent i = new Intent(this, SecondActivity.class);
+		 Toast.makeText(this, "open hungry", Toast.LENGTH_SHORT).show();
+		 Intent i = new Intent(this, HomeActivity.class);
 	 	 startActivity(i);		
 	}
 
@@ -184,7 +203,7 @@ public class MainActivity extends Activity {
 		@Override
 		protected Boolean doInBackground(Void... data) {
 			// TODO Auto-generated method stub
-			String requestUri = HttpHelper.API_BASE_ADDRESS + "oauth/token";
+			String requestUri = Const.API_BASE_ADDRESS + "/oauth/token";
 			ArrayList<NameValuePair> params = new ArrayList<NameValuePair>(4);
 			SharedPreferences prefs = getSharedPreferences(SessionStore.KEY, Context.MODE_PRIVATE);
 			String token = prefs.getString(SessionStore.TOKEN, "");
@@ -222,8 +241,8 @@ public class MainActivity extends Activity {
 			editor.commit();
 			 Toast.makeText(MainActivity.this, "Logged in successfully", Toast.LENGTH_SHORT).show();
 
-			//openHungry();
-			showLogin(false);
+			openHungry();
+			//showLogin(false);
 		}
 	}
 }
