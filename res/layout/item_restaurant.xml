@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/iv_rest_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#aaaaaa"
+        android:padding="10dp"
+        android:scaleType="fitXY"
+         />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        android:background="@color/bg_dark" >
+
+        <TextView
+            android:id="@+id/tv_rest_dish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="5dp"
+            android:text="TextView"
+            android:textSize="20dp"
+            android:textColor="@color/txt_percent"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:src="@drawable/btn_right" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_like_number"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/like_number" />
+
+    <ImageView
+        android:id="@+id/iv_like"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/btn_like_selector" />
+
+</RelativeLayout>

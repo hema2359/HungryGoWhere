@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/box"
+    android:orientation="horizontal" >
+     <com.example.hungry.customview.CustomTextView
+	     android:id="@+id/tv_content"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_weight="1"
+	     android:layout_gravity="center_vertical"
+	     android:padding="10dp"
+	     android:textSize="20dp"
+	     android:textColor="@color/text_red"
+	     android:text="Ratings" />
+     <com.example.hungry.customview.CustomTextView
+	     android:id="@+id/tv_value"
+	     android:layout_width="wrap_content"
+	     android:layout_height="wrap_content"
+	     android:layout_weight="1"
+	     android:textSize="20dp"
+	     android:padding="10dp"
+	     android:layout_gravity="center_vertical"
+	     android:gravity="right"
+	     android:textColor="@color/txt_heavy"
+	     android:text="Ratings" />
+
+</LinearLayout>

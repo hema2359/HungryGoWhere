@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#f4f4f4</color>
+    <color name="bg_light">#fefefe</color>
+	<color name="bg_header">#e4e4e4</color>
+	<color name="text_red">#d31c1d</color>
+	<color name="bg_footer">#d7d6d6</color>
+	<color name="txt_percent">#ffc510</color>
+	<color name="txt_recomend">#999999</color>
+	<color name="txt_light">#909090</color>
+	<color name="txt_heavy">#666666</color>
+	<color name="txt_dishname">#e6a200</color>
+	<color name="bg_shadow">#d6d6d6</color>
+
+
+</resources>
