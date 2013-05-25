@@ -8,6 +8,6 @@ public class FourthActivity extends FragmentActivity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.fourth2);
+		setContentView(R.layout.activity_fourth);
 	}
 }
